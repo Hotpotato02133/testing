@@ -1,0 +1,13 @@
+@media print {
+    .payslip-container {
+        width: 100mm; /* Set the width of the container to match A4 paper width */
+        margin: 5mm; /* Center the container horizontally */
+        padding: 10mm; /* Add padding to the container */
+        font-size: xx-small;
+        size: 1rem;
+    }
+
+    h5 {
+        font-size: small;
+    }
+}

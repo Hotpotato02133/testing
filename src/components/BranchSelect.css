@@ -1,0 +1,29 @@
+.branch-select-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.branch-select-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.custom-select-wrapper {
+    position: relative;
+}
+
+.custom-select {
+    appearance: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.custom-select:focus {
+    border-color: #007bff;
+}
