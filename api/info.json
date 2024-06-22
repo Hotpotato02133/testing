@@ -2,25 +2,28 @@
     "cards": [
         {
             "_id": 1,
-            "name": "Sales",
-            "icon": "bi bi-cart",
-            "amount": 7789,
+            "name": "Total Sales",
+            "icon": "bi bi-cart2",
+            "amount": 80000,
+            "desc": "PHP",
             "percentage": 0.05,
             "active": true
         },
         {
             "_id": 2,
-            "name": "Revenue",
-            "icon": "bi bi-cash",
-            "amount": 8921,
+            "name": "Cash Discrepancy",
+            "icon": "bi bi-cash-stack",
+            "amount": 808,
+            "desc": "PHP",
             "percentage": 0.01,
             "active": false
         },
         {
             "_id": 3,
-            "name": "Discrepancy",
-            "icon": "bi bi-cash-coin",
-            "amount": 1244,
+            "name": "Stocks",
+            "icon": "bi bi-boxes",
+            "amount": 250,
+            "desc": "ITEMS",
             "percentage": -0.11,
             "active": false
         }
@@ -826,6 +829,44 @@
             "laEndInv": null,
             "pawnValue": null,
             "commCode": null
+        }
+    ],
+    "productList": [
+        {
+            "id": 1000,
+            "code": "f230fh0g3",
+            "name": "ORO Tshirt",
+            "description": "Product Description",
+            "image": "../assets/items/product-1.jpg",
+            "price": 65,
+            "category": "Accessories",
+            "quantity": 24,
+            "inventoryStatus": "INSTOCK",
+            "rating": 5
+        },
+        {
+            "id": 1001,
+            "code": "nvklal433",
+            "name": "ORO Pants",
+            "description": "Product Description",
+            "image": "../assets/items/product-2.jpg",
+            "price": 72,
+            "category": "Accessories",
+            "quantity": 61,
+            "inventoryStatus": "INSTOCK",
+            "rating": 4
+        },
+        {
+            "id": 1002,
+            "code": "zz21cz3c1",
+            "name": "ORO Bag",
+            "description": "Product Description",
+            "image": "../assets/items/product-3.jpg",
+            "price": 79,
+            "category": "Fitness",
+            "quantity": 2,
+            "inventoryStatus": "LOWSTOCK",
+            "rating": 3
         }
     ],
     "employeeList": [

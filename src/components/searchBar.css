@@ -2,7 +2,7 @@
 
 .header .search-bar {
     min-width: 360px;
-    padding: 0 20px;
+    padding: 0 16px;
 }
 
 @media (max-width: 1199px) {
@@ -37,7 +37,7 @@
     color: #262626;
     border: 1px solid rgba(1, 41, 112, 0.2);
     padding: 7px 38px 7px 8px;
-    border-radius: 3px;
+    border-radius: 28px;
     transition: 0.3s;
     width: 100%;
 }

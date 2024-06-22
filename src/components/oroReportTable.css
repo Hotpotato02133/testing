@@ -54,6 +54,22 @@
 
 @media print {
     .table-container {
+        margin: 8mm;
+    }
+
+    .table-title {
         margin: 14mm;
+    }
+
+    .table-subtitle {
+        margin: 14mm;
+    }
+
+    .print-button1 {
+        display: none;
+    }
+
+    @page {
+        size: landscape;
     }
 }

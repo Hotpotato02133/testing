@@ -15,7 +15,7 @@ const PayslipCard= () => {
                     <div className="text-center lh-4 mb-2">
                         <h3 className="fw-bold">PAY SLIP</h3> <span className="fw-normal">Payment Slip for the month of January 2024</span>
                     </div>
-                    <div className="d-flex justify-content-end mb-2"> <small>01/01/24-01/15/24 = 15 Days</small> </div>
+                    <div className="d-flex justify-content-end mb-2"> <small>01/01/24 - 01/15/24 = 15 Days</small> </div>
                     <div className="row">
                         <div className="col-md-12">
                             <div className="col">

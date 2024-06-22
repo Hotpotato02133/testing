@@ -1,0 +1,20 @@
+.gradient-button {
+    background: linear-gradient(45deg, #5496ff, #b0e6ff);
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 253, 245);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: center;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.gradient-button:hover {
+    background: linear-gradient(90deg, #5496ff, #b0e6ff);
+    transform: scale(1.05);
+}
+
+.gradient-button:active {
+    transform: scale(0.95);
+}

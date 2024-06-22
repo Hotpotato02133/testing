@@ -1,11 +1,9 @@
 /* ================== HEADER NAV ======================== */
-
-
 .header-nav ul {
     list-style: none;
 }
 
-.header-nav > ul {
+.header-nav>ul {
     margin: 0;
     padding: 0;
 }
@@ -60,7 +58,7 @@
     margin-bottom: 5px;
 }
 
-.header-nav .notifications .notification-item p{
+.header-nav .notifications .notification-item p {
     font-size: 13px;
     margin-bottom: 3px;
     color: #919191;
@@ -88,7 +86,7 @@
     max-height: 40px;
 }
 
-.header-nav .messages .message-item h4{
+.header-nav .messages .message-item h4 {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 5px;

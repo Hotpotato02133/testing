@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import './DateRangePicker.css'
+import React, { useState } from 'react';
+import './DateRangePicker.css';
 
 const DateRangePicker = ({ onChange }) => {
     const [startDate, setStartDate] = useState('');
@@ -7,7 +7,7 @@ const DateRangePicker = ({ onChange }) => {
 
     const handleStartDateChange = (event) => {
         setStartDate(event.target.value);
-        if (endDate && event.target.value > endDate) {
+        if (endDate && event.target.value > endDate){
             setEndDate('');
         }
     };
@@ -20,19 +20,21 @@ const DateRangePicker = ({ onChange }) => {
     };
 
     const handleApply = () => {
-        if (startDate && endDate){
+        if (startDate && endDate) {
             onChange(startDate, endDate);
         }
-    }
+    };
 
   return (
     <div className='date-range-picker'>
+        <label style={{ marginLeft: '5px'}}>Date from:</label>
         <input
             type='date'
             value={startDate}
             onChange={handleStartDateChange}
             placeholder='Start Date'
         />
+        <label style={{ marginLeft: '5px'}}> to: </label>
         <input
             type='date'
             value={endDate}
@@ -44,4 +46,4 @@ const DateRangePicker = ({ onChange }) => {
   );
 };
 
-export default DateRangePicker
+export default DateRangePicker;

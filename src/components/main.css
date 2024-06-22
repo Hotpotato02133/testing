@@ -5,6 +5,8 @@
     margin-top: 60px;
     padding: 10px 20px;
     transition: all 0.3s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
 }
 
 @media (max-width: 1199px) {

@@ -8,11 +8,13 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 
 import './App.css';
 import Header from './components/Header';
-import SideBar from './components/SideBar';
+
 import Main from './components/Main';
 import Footer from './components/Footer';
-import BackToTop from './components/BackToTop';
+// import BackToTop from './components/BackToTop';
 import { GetAPITokenJava } from './pages/functions/getAPIToken';
+import SideBar from './components/SideBar';
+// import SideBar1 from './components/SideBar1';
 
 
 function App() {
@@ -26,7 +28,7 @@ function App() {
       <Main />
       <Footer />
       
-      <BackToTop />
+      {/* <BackToTop /> */}
     </div>
   )
 }

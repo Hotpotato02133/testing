@@ -7,6 +7,7 @@ function Reports() {
     const handleFilterChange = filter => {
         setFilter(filter);
     };
+    
   return (
     <div className="card">
         <CardFilter filterChange={handleFilterChange} />

@@ -1,82 +1,73 @@
-import React, { useEffect } from 'react';
-import * as echarts from 'echarts';
+import React, { useEffect, useRef, useState } from 'react';
+import Chart from 'react-apexcharts';
 
 function OroBranchesChart() {
-    useEffect(() => {
-        echarts.init(document.querySelector('#oroChart')).setOption({
-            tooltip: {
-                trigger: 'item',
-            },
-            legend: {
-                top: '5%',
-                left: 'center',
-            },
-            series: [
-                {
-                    name: 'Sales From',
-                    type: 'pie',
-                    radius: ['40%', '70%'],
-                    avoidLabelOverlap: false,
-                    label: {
-                        show: false,
-                        position: 'center',
-                    },
-                    emphasis: {
-                        label: {
-                            show: true,
-                            fontSize: '18',
-                            fontWeight: 'bold',
-                        },
-                    },
-                    labelLine: {
-                        show: false,
-                    },
-                    data: [
-                        {
-                            value: 10448,
-                            name: 'ORO 5',
-                        },
-                        {
-                            value: 3129,
-                            name: 'ORO 6',
-                        },
-                        {
-                            value: 10580,
-                            name: 'ORO 12',
-                        },
-                        {
-                            value: 14804,
-                            name: 'ORO 14',
-                        },
-                        {
-                            value: 12300,
-                            name: 'ORO 16',
-                        },
-                        {
-                            value: 2300,
-                            name: 'ORO 20',
-                        },
-                        {
-                            value: 17300,
-                            name: 'ORO 21',
-                        },
-                        {
-                            value: 11900,
-                            name: 'ORO 22',
-                        },
-                    ],
-                },
-            ],
-        });
-    }, []);
+  const [options, setOptions] = useState({
+    series: [44, 55, 41, 17, 15],
+    chart: {
+      width: 380,
+      type: 'donut',
+    },
+    plotOptions: {
+      pie: {
+        startAngle: -90,
+        endAngle: 270,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    fill: {
+      type: 'gradient',
+    },
+    legend: {
+      formatter: function(val, opts) {
+        return `ORO ${opts.seriesIndex + 1} - ${opts.w.globals.series[opts.seriesIndex]}`;
+      },
+    },
+    title: {
+      text: '',
+    },
+    responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 200,
+        },
+        legend: {
+          position: 'bottom',
+        },
+      },
+    }],
+    tooltip: {
+      enabled: true,
+      y: {
+        formatter: function(val) {
+          return `ORO: ${val}`;
+        }
+      }
+    },
+  });
+  const chartRef = useRef(null);
+
+  useEffect(() => {
+    if (chartRef.current && chartRef.current.updateOptions) {
+      chartRef.current.updateOptions(options, false);
+    }
+  }, [options]);
 
   return (
-    <div
-        id='oroChart'
-        style={{ minHeight: '400px' }}
-        className='echart'
-    ></div>
+    <div className='app'>
+      <Chart
+        options={options}
+        series={[44, 55, 41, 17, 15, 32, 20, 16]}
+        type='donut'
+        width='100%'
+        height='400px'
+        ref={chartRef}
+      />
+    </div>
   );
 }
 
-export default OroBranchesChart
+export default OroBranchesChart;

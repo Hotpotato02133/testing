@@ -2,6 +2,36 @@ import React, { useEffect, useState } from 'react';
 import './card.css';
 import CardFilter from './CardFilter';
 
+const cardsData = [
+  {
+    "_id": 1,
+    "name": "Total Sales",
+    "icon": "bi bi-trophy",
+    "amount": 808888,
+    "desc": "PHP",
+    "percentage": 0.05,
+    "active": true
+  },
+  {
+    "_id": 2,
+    "name": "Cash Discrepancy",
+    "icon": "bi bi-cash-stack",
+    "amount": 1008,
+    "desc": "PHP",
+    "percentage": -0.11,
+    "active": false
+  },
+  {
+    "_id": 3,
+    "name": "Stocks",
+    "icon": "bi bi-boxes",
+    "amount": 250,
+    "desc": "ITEMS",
+    "percentage": 0.01,
+    "active": false
+  }
+];
+
 function Card({ card }) {
   const [filter, setFilter] = useState('Today');
   const [selectedDate, setSelectedDate] = useState(null);
@@ -14,12 +44,15 @@ function Card({ card }) {
 
   const handleFilterChange = (filterValue) => {
     setFilter(filterValue);
-
     // Additional logic related to filter changes can be added here
   };
 
+  const formatAmount = (amount) => {
+    return amount.toLocaleString('en-PH');
+  };
+
   return (
-    <div className="col-xxl-4 col-md-6">
+    <div className="col-lg-4 mb-3">
       <div className='card info-card justify-content-center sales-card'>
         <CardFilter filterChange={handleFilterChange} setSelectedDate={setSelectedDate} />
         <div className='card-body'>
@@ -34,20 +67,11 @@ function Card({ card }) {
             <div className='ps-3'>
               <h6>
                 {card.name === 'Revenue'
-                  ? 'P' + card.amount.toLocaleString('en-PH')
-                  : card.amount.toLocaleString('es-PH')}
+                  ? 'P' + formatAmount(card.amount)
+                  : formatAmount(card.amount)}
               </h6>
-              <span className={`${
-                card.percentage > 0 ? 'text-success' : 'text-danger'
-              } small pt-1 fw-bold`}
-              >
-                {card.percentage > 0
-                  ? card.percentage * 100
-                  : -card.percentage * 100}
-                %
-              </span>
-              <span className='text-muted small pt-2 ps-1'>
-                {card.percentage > 0 ? 'increase' : 'decrease'}
+              <span className='text-muted small pt-1 fw-bold ps-1'>
+                {card.desc}
               </span>
             </div>
           </div>
@@ -57,4 +81,14 @@ function Card({ card }) {
   );
 }
 
-export default Card;
+function CardList() {
+  return (
+    <div className="row">
+      {cardsData.map(card => (
+        <Card key={card._id} card={card} />
+      ))}
+    </div>
+  );
+}
+
+export default CardList;

@@ -5,11 +5,7 @@ import './pageTitle.css';
 function PageTitle({ page }) {
     return (
       <div className="pagetitle">
-          <h1>{page}</h1>
-          <nav>
-              <button className='nav-button active'>POS Jewelry</button>
-              <button className='nav-button'>ORO Payroll</button>
-          </nav>
+          <h1 className=''>{page}</h1>
       </div>
     );
 }
