@@ -1,13 +1,96 @@
 @media print {
     .payslip-container {
-        width: 100mm; /* Set the width of the container to match A4 paper width */
-        margin: 5mm; /* Center the container horizontally */
-        padding: 10mm; /* Add padding to the container */
+        width: 100mm;
+        /* Set the width of the container to match A4 paper width */
+        margin: 5mm;
+        /* Center the container horizontally */
+        padding: 10mm;
+        /* Add padding to the container */
         font-size: xx-small;
         size: 1rem;
     }
 
     h5 {
         font-size: small;
+    }
+}
+/* src/Payslip.css */
+
+/* Existing styles for Payslip component */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-box {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-header h2 {
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #806749;
+}
+
+.popup-body {
+    margin: 20px 0;
+    font-weight: 400;
+}
+
+.popup-footer {
+    text-align: right;
+}
+
+.popup-button {
+    background-color: #3085d6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.popup-button:hover {
+    background-color: #2874bd;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

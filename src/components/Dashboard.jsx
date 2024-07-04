@@ -65,13 +65,14 @@ function Dashboard() {
                         {/* <div className='col-12'>
                             <Hamster />
                         </div> */}
+
                         {/* <div className='col-12'>
                             <LogoSpinner />
                         </div> */}
                         {/* <div className='col-12'>
                             <Payslip />
-                        </div>
-                        <div className='col-12'>
+                        </div> */}
+                        {/* <div className='col-12'>
                             <Dtr />
                         </div>
                         <div className='col-12'>

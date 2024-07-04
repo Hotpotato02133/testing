@@ -1,64 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Avatar, Menu, MenuItem, ListItemIcon, Divider, Typography, IconButton } from '@mui/material';
+import { Person, Settings, HelpOutline, Logout, ExpandMore } from '@mui/icons-material';
 import profileImg from '../assets/user1.png';
+import HelpSubmenu from './HelpSubmenu'; // Import the new submenu component
 import './nav.css';
 
 function NavAvatar() {
-  return (
-    <li className='nav-item dropdown pe-3'>
-      <a
-        className='nav-link nav-profile d-flex align-items-center pe-0'
-        href='#'
-        id='navbarDropdown'
-        role='button'
-        data-bs-toggle='dropdown'
-        aria-expanded='false'
-      >
-        <img src={profileImg} alt='Profile' className='rounded-circle' />
-        <span className='d-none d-md-block dropdown-toggle ps-2'>User</span>
-      </a>
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [helpAnchorEl, setHelpAnchorEl] = useState(null); // State for Help submenu
 
-      <ul className='dropdown-menu dropdown-menu-end dropdown-menu-arrow profile' aria-labelledby='navbarDropdown'>
-        <li className='dropdown-header'>
-          <h6 className='custom-text'>James</h6>
-          <span>Developer</span>
-        </li>
-        <li>
-          <hr className='dropdown-divider' />
-        </li>
-        <li>
-          <a className='dropdown-item d-flex align-items-center' href='users-profile.html'>
-            <i className='bi bi-person'></i>
-            <span>My Profile</span>
-          </a>
-        </li>
-        <li>
-          <hr className='dropdown-divider' />
-        </li>
-        <li>
-          <a className='dropdown-item d-flex align-items-center' href='account-settings.html'>
-            <i className='bi bi-gear'></i>
-            <span>Account Settings</span>
-          </a>
-        </li>
-        <li>
-          <hr className='dropdown-divider' />
-        </li>
-        <li>
-          <a className='dropdown-item d-flex align-items-center' href='pages-faq.html'>
-            <i className='bi bi-question-circle'></i>
-            <span>Need Help?</span>
-          </a>
-        </li>
-        <li>
-          <hr className='dropdown-divider' />
-        </li>
-        <li>
-          <a className='dropdown-item d-flex align-items-center' href='#'>
-            <i className='bi bi-box-arrow-right'></i>
-            <span>Sign Out</span>
-          </a>
-        </li>
-      </ul>
+  const open = Boolean(anchorEl);
+  const helpOpen = Boolean(helpAnchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleHelpClick = (event) => {
+    setHelpAnchorEl(event.currentTarget);
+  };
+
+  const handleHelpClose = () => {
+    setHelpAnchorEl(null);
+  };
+
+  return (
+    <li className='nav-item'>
+      <div className='nav-link nav-profile d-flex align-items-center pe-0' onClick={handleClick}>
+        <Avatar src={profileImg} alt='Profile' className='nav-avatar' />
+        <span className='d-none d-md-block ps-2'>Users</span>
+      </div>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        disableScrollLock={true}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+      >
+        <MenuItem>
+          <div className='dropdown-header'>
+            <Typography variant='subtitle1' noWrap>
+              James
+            </Typography>
+            <Typography variant='body2' color="textSecondary" noWrap>
+              Developer
+            </Typography>
+          </div>
+        </MenuItem>
+        <Divider />
+        <MenuItem component="a" href='users-profile.html'>
+          <ListItemIcon>
+            <Person fontSize='small' />
+          </ListItemIcon>
+          My Profile
+        </MenuItem>
+        <Divider />
+        <MenuItem component="a" href='account-settings.html'>
+          <ListItemIcon>
+            <Settings fontSize='small' />
+          </ListItemIcon>
+          Account Settings
+        </MenuItem>
+        <Divider />
+        <MenuItem onClick={handleHelpClick}>
+          <ListItemIcon>
+            <HelpOutline fontSize='small' />
+          </ListItemIcon>
+          Need Help
+          <IconButton
+            edge="end"
+            aria-label="expand"
+            style={{ marginLeft: 'auto', transition: 'transform 0.3s' }}
+            className={helpOpen ? 'chevron-rotate' : ''}
+          >
+            <ExpandMore fontSize='small' />
+          </IconButton>
+        </MenuItem>
+        <Divider />
+        <MenuItem component='a' href='#'>
+          <ListItemIcon>
+            <Logout fontSize='small' />
+          </ListItemIcon>
+          Sign out
+        </MenuItem>
+      </Menu>
+      <HelpSubmenu anchorEl={helpAnchorEl} open={helpOpen} onClose={handleHelpClose} />
     </li>
   );
 }

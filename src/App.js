@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 // import BackToTop from './components/BackToTop';
 import { GetAPITokenJava } from './pages/functions/getAPIToken';
 import SideBar from './components/SideBar';
+import FloatingAIButton from './components/FloatingAIButton';
 // import SideBar1 from './components/SideBar1';
 
 
@@ -29,6 +30,7 @@ function App() {
       <Footer />
       
       {/* <BackToTop /> */}
+      <FloatingAIButton />
     </div>
   )
 }
